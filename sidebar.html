@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+<!--     <link
+      href=""
+      rel="stylesheet"
+      type="text/css"
+    /> -->
+    <title>Title</title>
+    <style>
+      @font-face {
+  font-family: main-font;
+  src: url(https://cdn.glitch.com/d15a0c62-6117-4382-a960-4f51f8fc660a%2FAdoring-K7WBo.otf?v=1626709238350);
+}
+            /* Add this shadow in tailwind.config.js */
+            @font-face {
+              font-family: main-font;
+              src: url(https://cdn.glitch.com/d15a0c62-6117-4382-a960-4f51f8fc660a%2FAdoring-K7WBo.otf?v=1626709238350);
+            }
+      @font-face {
+              font-family: large-font;
+              src: url(https://cdn.glitch.com/d15a0c62-6117-4382-a960-4f51f8fc660a%2FExthing-1Gox2.ttf?v=1626195753827);
+            }
+            * {
+              caret-color: rgba(0, 0, 0, 0);
+              user-select: none;
+              outline: none;
+              
+            }
+            
+            body {
+              text-align: center;
+              position: absolute;
+              margin: 0;
+              margin-top: 0;
+      /*         height: 80%; */
+              background: rgba(25, 22, 24, 0.42);
+              box-shadow: inset 4px 3px 3px -1px rgba(5, 5, 5, 0.8),
+                inset 6px 3px 4px -10px rgba(5, 5, 5, 0.8),
+                inset 0 0 4px 0 rgba(5, 5, 5, 0.8),
+                inset -3px -4px 2px 1px rgba(255, 255, 255, 1),
+                inset -2px -3px 4px 0 rgba(255, 255, 255, 1),
+                inset 0 0 400px 20px rgba(255, 255, 255, 0.41);
+              width: 100vw;
+      /*         overflow: hidden; */
+            }
+      p {
+        font-family: "main-font";
+              color: rgba(252,252,222, 0.52);
+              text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      }
+      h1, h3 {
+        font-family: "large-font";
+              color: rgba(222,222,252, 0.2);
+              text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+      }
+            .neumorphism-shadow {
+              box-shadow: -4px -4px 10px rgb(255, 255, 255),
+                4px 4px 10px rgba(0, 0, 0, 0.49);
+            }
+
+            .fade:not(.show) {
+              opacity: 0;
+            }
+            .collapse:not(.show) {
+              display: none;
+            }
+            .collapsing {
+              height: 0;
+              overflow: hidden;
+              transition: height 0.35s ease;
+            }
+            @media (prefers-reduced-motion: reduce) {
+              .collapsing {
+                transition: none;
+              }
+              .fade {
+                transition: none;
+              }
+            }
+            /* fixed github link. this stuff also should be applied throw config file  */
+            .github-link:hover {
+              box-shadow: inset -4px -4px 10px rgb(255, 255, 255),
+                inset 4px 4px 10px rgba(0, 0, 0, 0.219);
+            }
+            .github-link:hover > svg,
+            .github-link:focus > svg {
+              transform: scale(0.95);
+            }
+            img {
+              padding: 2px;
+              border-radius: 10px;
+              box-shadow: -1px -1px 3px -1px rgba(255, 255, 255, 0.5),
+                -1px -1px 2px 1px rgba(255, 255, 255, 0.5),
+                -2px -1px 2px 1px rgba(255, 255, 255, 0.5),
+                3px 3px 4px rgba(0, 0, 0, 0.25),
+                inset -1px 2px 1px rgba(0, 0, 0, 0.35),
+                3px 3px 2px rgba(0, 0, 0, 0.35), inset 2px 2px 2px rgba(0, 0, 0, 0.35),
+                1px 1px 2px 3px rgba(255, 255, 255, 0.27),
+                inset -2px -2px 2px rgba(255, 255, 255, 0.37);
+              border: 3px solid rgba(255, 255, 255, 0.37);
+            }
+            a {
+              color: white;
+            }
+            .flex-1 {
+              max-height: 600px;
+            }
+            aside {
+              width: 100%;
+              height: 100vh;
+              overflow: hidden;
+
+
+            }
+            .sb-head {
+              position: fixed;
+              padding: 15px;
+              margin: 15px;
+            }
+            .tester {
+              text-align: center;
+              margin-top: 115px;
+              padding: 25px;
+              height: 50vh;
+              overflow: auto;
+            }
+            /* TODO: CHANGE SCROLLBAR STYLE */
+
+            div {
+          position: relative;
+      }
+            .wrapped {
+      /*         height: 100%; */
+              margin-top: 130px;
+              box-shadow: inset 0 0 10px gray;
+              border-radius: 10px;
+            }
+      bottomfade {
+          border-radius: 1px 1px 10px 10px;
+          position: absolute;
+          bottom: 0px;
+
+          display: block;
+
+          width: 100%;
+          height: 80px;
+
+          background-image: linear-gradient(to bottom,
+            rgba(170, 170, 170,  0),
+            rgba(170, 170, 170, 0.2),
+            rgba(170, 170, 170, 0.5),
+            rgba(170, 170, 170, 0.7),
+            rgba(170, 170, 170, 0.8),
+            rgba(170, 170, 170, 0.9),
+            rgba(170, 170, 170, 1)
+          100%);
+      }
+      topfade {
+          border-radius: 1px 1px 10px 10px;
+          position: absolute;
+          top 0px;
+
+          display: block;
+
+          width: 100%;
+          height: 80px;
+
+          background-image: linear-gradient(to top,
+            rgba(170, 170, 170,  1),
+            rgba(170, 170, 170, 0.9),
+            rgba(170, 170, 170, 0.8),
+            rgba(170, 170, 170, 0.7),
+            rgba(170, 170, 170, 0.5),
+            rgba(170, 170, 170, 0.2),
+            rgba(170, 170, 170, 0)
+          100%);
+      }
+      .head-title
+      .head-name {
+        
+      }
+      h1 {
+        
+      }
+    </style>
+  </head>
+  <body>
+    <!--⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇-->
+
+    <!--     <div class="wrapper"> -->
+    <!-- Copy and Paste Me -->
+
+    <script></script>
+
+    <!--⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆-->
+
+    <!--⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇-->
+
+    <!--⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆-->
+
+    <!--⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇-->
+
+    <aside class="flex-shrink-0 p-4">
+
+     
+
+
+      <iframe
+        src="https://original-portfolio.glitch.me/marquee-box.html"
+        style="object-fit:cover;position:relative; width:100%;height:125px;overFlow-x:hidden"
+        type="text/html"
+      >
+      </iframe>
+      <h1 style="font-size: 40px;">
+        Joshua J. Compton
+      </h1>
+      <h3 class="clear-font head-title">
+        FullStack Web Developer
+      </h3>
+<!--        <img
+        alt="me, but in code!"
+        class="rounded-full neumorphism-shadow"
+        src="https://cdn.glitch.com/745f9a59-9ec4-49ad-b0eb-487b57bda865%2FScreen%20Shot%202021-05-17%20at%208.32.08%20AM.png?v=1623558812258"
+        style="opacity:1;width:110px;height:110px; border: 1px solid rgba(244,244,255,0.7);box-shadow:1px 1px 12px rgba(0,0,0,0.5),box-shadow:-1px -1px 12px rgba(255,255,255,0.5),;"
+      /> -->
+      
+
+<!-- <div id="front" style="position:absolute;
+
+  width:155px;
+  height:155px;
+  left:-6px;
+  top:205px;
+  background:url('https://cdn.glitch.com/d15a0c62-6117-4382-a960-4f51f8fc660a%2Fclear.gif?v=1627358245716');
+  background-size: cover;
+  border-radius:50%;"></div> -->
+      
+      <div class="wrapped">
+
+        <div class="tester">
+          <p>
+            Guerilla Open Access Manifesto Information is power. But like all
+            power, there are those who want to keep it for themselves. The
+            world's entire scientific and cultural heritage, published over
+            centuries in books and journals, is increasingly being digitized and
+            locked up by a handful of private corporations. Want to read the
+            papers featuring the most famous results of the sciences? You'll
+            need to send enormous amounts to publishers like Reed Elsevier.
+            There are those struggling to change this. The Open Access Movement
+            has fought valiantly to ensure that scientists do not sign their
+            copyrights away but instead ensure their work is published on the
+            Internet, under terms that allow anyone to access it. But even under
+            the best scenarios, their work will only apply to things published
+            in the future. Everything up until now will have been lost. That is
+            too high a price to pay. Forcing academics to pay money to read the
+            work of their colleagues? Scanning entire libraries but only
+            allowing the folks at Google to read them? Providing scientific
+            articles to those at elite universities in the First World, but not
+            to children in the Global South? It's outrageous and unacceptable.
+            "I agree," many say, "but what can we do? The companies hold the
+            copyrights, they make enormous amounts of money by charging for
+            access, and it's perfectly legal — there's nothing we can do to stop
+            them." But there is something we can, something that's already being
+            done: we can fight back. Those with access to these resources —
+            students, librarians, scientists — you have been given a privilege.
+            You get to feed at this banquet of knowledge while the rest of the
+            world is locked out. But you need not — indeed, morally, you cannot
+            — keep this privilege for yourselves. You have a duty to share it
+            with the world. And you have: trading passwords with colleagues,
+            filling download requests for friends. Meanwhile, those who have
+            been locked out are not standing idly by. You have been sneaking
+            through holes and climbing over fences, liberating the information
+            locked up by the publishers and sharing them with your friends. But
+            all of this action goes on in the dark, hidden underground. It's
+            called stealing or piracy, as if sharing a wealth of knowledge were
+            the moral equivalent of plundering a ship and murdering its crew.
+            But sharing isn't immoral — it's a moral imperative. Only those
+            blinded by greed would refuse to let a friend make a copy. Large
+            corporations, of course, are blinded by greed. The laws under which
+            they operate require it — their shareholders would revolt at
+            anything less. And the politicians they have bought off back them,
+            passing laws giving them the exclusive power to decide who can make
+            copies. There is no justice in following unjust laws. It's time to
+            come into the light and, in the grand tradition of civil
+            disobedience, declare our opposition to this private theft of public
+            culture. We need to take information, wherever it is stored, make
+            our copies and share them with the world. We need to take stuff
+            that's out of copyright and add it to the archive. We need to buy
+            secret databases and put them on the Web. We need to download
+            scientific journals and upload them to file sharing networks. We
+            need to fight for Guerilla Open Access. With enough of us, around
+            the world, we'll not just send a strong message opposing the
+            privatization of knowledge — we'll make it a thing of the past. Will
+            you join us? Aaron Swartz
+          </p>
+        </div>
+        <bottomfade />
+      </div>
+    </aside>
+    <!--             </div> -->
+
+    <!--     </div> -->
+  </body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+
+<!--     <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet"> -->
+    <link href="https://cdn.glitch.com/d15a0c62-6117-4382-a960-4f51f8fc660a%2Ffooter-menu.css?v=1628718599979" rel="stylesheet">
+<!--     <link href="https://cdn.glitch.com/745f9a59-9ec4-49ad-b0eb-487b57bda865%2Ffooter-menu.css?v=1628732749981" rel="stylesheet"> -->
+  
+  
+</head>
+
+<body translate="no">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+<footer>
+    <div class="nav">
+        <ul class="radial-nav">
+<!--             <li data-content="1"><a href="#">1</a></li>
+            <li data-content="2"><a href="#">2</a></li> -->
+<!--             <li data-content="3"><a href="#">3</a></li> -->
+<!--             <li data-content="4"><a href="#">4</a></li> -->
+<!--             <li data-content="5"><a href="#">5</a></li>
+            <li data-content="6"><a href="#">6</a></li>
+            <li data-content="7"><a href="#">7</a></li>
+            <li data-content="8"><a href="#">8</a></li> -->
+<!--             background-color: rgba(0, 0, 0, 0);  -->
+            <li class="menu-icon neumorphism-shadow menu"
+                style="right: 75px; bottom: 10px;background:url(''); transition: all 3s ease-in;background-size:cover; ">
+                <img class=""
+                     src="https://cdn.glitch.com/1ba8884d-b96f-41cf-9f77-f50fe772ba2c%2Fsubtlepulse.gif?v=1627670517342"
+                     style="height:60px; width:60px; opacity:1; box-shadow: inset 2px 1px 18px -8px gray, 1px 2px 3px 0px white, 2px 2px 4px -1px black; border-radius: 50%;" /></li>
+        </ul>
+    </div>
+</footer>
+<div class="content">
+
+    <article class="item" id="1">
+        <h1>Grunt: the task runner</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ad laudantium ullam nobis magni, molestiae,
+            nisi doloribus fugiat quam, quo odio ex sequi eum recusandae tempore optio! Veniam, mollitia soluta.</p>
+    </article>
+    <article class="item" id="2">
+        <h1>Jade: A Node templating engine</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ad laudantium ullam nobis magni, molestiae,
+            nisi doloribus fugiat quam, quo odio ex sequi eum recusandae tempore optio! Veniam, mollitia soluta.</p>
+    </article>
+    <article class="item" id="3">
+        <h1>CSS3</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ad laudantium ullam nobis magni, molestiae,
+            nisi doloribus fugiat quam, quo odio ex sequi eum recusandae tempore optio! Veniam, mollitia soluta.</p>
+    </article>
+    <article class="item" id="4">
+        <h1>GIT: Version control</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ad laudantium ullam nobis magni, molestiae,
+            nisi doloribus fugiat quam, quo odio ex sequi eum recusandae tempore optio! Veniam, mollitia soluta.</p>
+    </article>
+    <article class="item" id="5">
+        <h1>GULP: An other task runner</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ad laudantium ullam nobis magni, molestiae,
+            nisi doloribus fugiat quam, quo odio ex sequi eum recusandae tempore optio! Veniam, mollitia soluta.</p>
+    </article>
+    <article class="item" id="6">
+        <h1>YO</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ad laudantium ullam nobis magni, molestiae,
+            nisi doloribus fugiat quam, quo odio ex sequi eum recusandae tempore optio! Veniam, mollitia soluta.</p>
+    </article>
+    <article class="item" id="7">
+        <h1>JS</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ad laudantium ullam nobis magni, molestiae,
+            nisi doloribus fugiat quam, quo odio ex sequi eum recusandae tempore optio! Veniam, mollitia soluta.</p>
+    </article>
+    <article class="item" id="8">
+        <div style="position: relative;
+  width: 100%;
+  /*overflow: hidden;*/
+  padding-top: 10%; ">
+            <iframe src="https://modular-componets.glitch.me/fullmodal" style="  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  border: none;">
+
+            </iframe>
+        </div>
+    </article>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script id="rendered-js">
+    $(document).ready(function () {
+        function radialMenu() {
+            $('.radial-nav').on('click', function (evt) {
+                evt.stopPropagation();
+                $('.nav, .item').removeClass('active');
+                $(this).toggleClass('expanded');
+                $(this).find('li').removeClass('selected');
+            });
+
+            $('.radial-nav li').not('.menu').click(function (evt) {
+                evt.stopPropagation();
+                $(this).addClass('selected');
+                $('.nav').addClass('active');
+                $('.radial-nav').removeClass('expanded');
+                getContent(this);
+            });
+
+            function getContent(elem) {
+                $('#' + $(elem).attr('data-content')).addClass('active');
+            }
+        }
+        radialMenu();
+    });
+</script>
+
+  
+  
+  
+  
+  
+<script>
+$('[data-size]').on('click', function(e) {
+  e.preventDefault();
+  $('.responsive-wrap').removeClass('fullscreen tablet phone')
+                       .addClass($(this).data('size'));
+  $('[data-size]').removeClass('active');
+  $(this).addClass('active');
+});  
+</script>
+
+
+</body>
+
+</html>

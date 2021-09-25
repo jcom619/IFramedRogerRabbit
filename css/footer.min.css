@@ -1,0 +1,42 @@
+.footer {
+  opacity: 0.32;
+  width: 100vw;
+  bottom: 0;
+  display: block;
+  position: fixed;
+  text-align: center;
+  text-shadow: 0 0 1px black, 
+               1px 1px 2px black, 
+               1px 0 2px black, 
+               0 1px 2px black, 
+               1px 0 2px black, 
+               0 -1px 2px black,
+               0 0 4px rgba(30,44,93,0.9), 
+               1px 1px 4px rgba(30,44,93,0.9), 
+               1px 0 4px rgba(30,44,93,0.9),
+               0 1px 4px rgba(30,44,93,0.9),
+               1px 0 4px rgba(30,44,93,0.9),
+               0 -1px 4px rgba(30,44,93,0.9),
+                0 0 20px rgba(30,44,93,0.9);
+  font-size: 3vw;
+  margin: 0;
+  color: rgba(44,66,99,0.5);
+  padding: 0.5em; 
+  transition: transform .3s ease, opacity .3s ease;
+  z-index: 300;
+}
+
+.footer, a {
+  font-size: 4vw;
+  color: rgba(54,98,122, 0.9); 
+  text-decoration: none;
+  transition: transform .3s ease, opacity .3s ease;
+}
+.footer:hover {
+  opacity:1;
+}
+.footer a:hover {
+  color: red;
+  transition: transform .3s ease, opacity .3s ease;
+
+}

@@ -1,0 +1,375 @@
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="./sidebar_files/tailwind.min.css" rel="stylesheet" type="text/css">
+    <title>Title</title>
+    <style>
+
+        /* Add this shadow in tailwind.config.js */
+        * {
+            caret-color: rgba(0,0,0,0);
+            user-select: none;
+            outline: none;
+        }
+
+        .neumorphism-shadow {
+            box-shadow: -4px -4px 10px rgb(255, 255, 255), 4px 4px 10px rgba(0, 0, 0, 0.219);
+        }
+        /* Rotate chevron in collapsing */
+        [data-bs-toggle='collapse'][aria-expanded='true'] span:nth-child(3) svg {
+            transform: rotate(-90deg);
+        }
+
+        /* For bootstrap collapse plugin */
+        .fade:not(.show) {
+            opacity: 0;
+        }
+        .collapse:not(.show) {
+            display: none;
+        }
+        .collapsing {
+            height: 0;
+            overflow: hidden;
+            transition: height 0.35s ease;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .collapsing {
+                transition: none;
+            }
+            .fade {
+                transition: none;
+            }
+        }
+        /* fixed github link. this stuff also should be applied throw config file  */
+        .github-link:hover {
+            box-shadow: inset -4px -4px 10px rgb(255, 255, 255), inset 4px 4px 10px rgba(0, 0, 0, 0.219);
+        }
+        .github-link:hover > svg,
+        .github-link:focus > svg {
+            transform: scale(1)
+        }
+        img {
+            padding: 2px;
+            border-radius: 10px;
+            box-shadow:
+                    -1px -1px 3px -1px rgba(255,255,255,0.5),
+                    -1px -1px 2px 1px rgba(255,255,255,0.5),
+                    -2px -1px 2px 1px rgba(255,255,255,0.5),
+                    3px 3px 4px rgba(0,0,0,0.25),
+                    inset -1px 2px 1px rgba(0,0,0,0.35),
+                    3px 3px 2px rgba(0,0,0,0.35),
+                    inset 2px 2px 2px rgba(0,0,0,0.35),
+                    1px 1px 2px 3px rgba(255,255,255,0.27),
+                    inset -2px -2px 2px rgba(255,255,255,0.37);
+            border: 3px solid rgba(255,255,255,0.37);
+        }
+        a {
+            color: white;
+        }
+        .flex-1 {
+/*             max-height: 600px; */
+        }
+        /* TODO: CHANGE SCROLLBAR STYLE */
+
+
+    </style>
+</head>
+<body style="
+    margin: 15px;
+">
+<!--⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇-->
+
+
+
+
+<!-- <div class="wrapper">
+
+    <iframe src="https://original-portfolio.glitch.me/marquee.html" style="object-fit:cover;position:relative; width:100%;height:125px;overFlow-x:hidden"
+            type="text/html">
+
+    </iframe>
+
+</div> -->
+
+
+
+
+
+
+
+
+<script></script>
+
+<script>
+    $(document).ready(function() {
+        $(".iframe").responsiveIframes({
+            openMessage: "Full screen",
+            closeMessage: "Close full screen"
+        });
+    });
+
+    /**
+     * jQuery Responsive IFrames
+     * @author Armin Solecki
+     * @source https://github.com/arminsolecki/responsive-iframes/
+     * Licensed under the MIT License (http://creativecommons.org/licenses/MIT/)
+     *
+     **/
+    (function($) {
+        $.responsiveIframes = function(el, options) {
+            var self = this;
+
+            // Access to jQuery and DOM versions of element
+            self.$el = $(el);
+            self.el = el;
+
+            // Add a reverse reference to the DOM object
+            self.$el.data("responsiveIframes", self);
+
+            self.init = function() {
+                self.options = $.extend(
+                    {},
+                    $.responsiveIframes.defaultOptions,
+                    options
+                );
+
+                // wrap iframe
+                var iframeSrc = self.$el
+                    .find("iframe")
+                    .wrap('<div class="iframe-content" />')
+                    .attr("src");
+
+                //generate header
+                var header =
+                    '<div class="iframe-header">' +
+                    '<a href="' +
+                    iframeSrc +
+                    '" class="iframe-trigger">' +
+                    self.options.openMessage +
+                    "</a>" +
+                    "</div>";
+
+                var trigger = self.$el.prepend(header).find(".iframe-trigger");
+
+                // click event
+                $(trigger).click(function(e) {
+                    e.preventDefault();
+
+                    var $this = $(this),
+                        $html = $("html"),
+                        isFullScreen = $html.hasClass("iframe-full-screen"),
+                        message = isFullScreen
+                            ? self.options.openMessage
+                            : self.options.closeMessage;
+
+                    $this.text(message);
+
+                    if (isFullScreen) {
+                        self.$el.removeClass("iframe-active");
+                        $html.removeClass("iframe-full-screen");
+                        setTimeout(function() {
+                            $(window).scrollTop($this.data("iframe-scroll-position"));
+                        }, 1);
+                    } else {
+                        $this.data("iframe-scroll-position", $(window).scrollTop());
+                        self.$el.addClass("iframe-active");
+                        $html.addClass("iframe-full-screen");
+                    }
+                });
+            };
+
+            // Run initializer
+            self.init();
+        };
+
+        $.responsiveIframes.defaultOptions = {
+            openMessage: "Full screen",
+            closeMessage: "Close"
+        };
+
+        $.fn.responsiveIframes = function(options) {
+            return this.each(function() {
+                new $.responsiveIframes(this, options);
+            });
+        };
+    })(jQuery);
+</script>
+
+
+
+
+
+<!--            <a-->
+<!--                    class="flex px-6 py-2 font-medium text-gray-600 transition-transform transform hover:translate-x-1"-->
+<!--                    href="#"-->
+<!--            >Link three</a>-->
+
+
+
+
+
+
+<!--    <script crossorigin="anonymous" lang="en" rel="script" src="https://cdnjs.cloudflare.com/ajax/libs/gulp/3.8.5/gulp.min.js" type="application/javascript" ></script>-->
+    <!-- 				 -->
+    <!-- <iframe  src="https://original-portfolio.glitch.me/mymodal.html"></iframe> -->
+
+
+<!--⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆-->
+
+
+
+
+
+<!--⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇-->
+
+
+
+<style>
+    * {
+    <!--     background-color: rgba(255, 25, 25, 0.51); -->
+        box-shadow:
+                2px 4px 1px rgba(255, 255, 255, 0),
+/*         transition: all 0.55s ease-in;  */
+  }
+    .qr-shadow-1,
+    .qr-shadow-2,
+    .qr-shadow-3 {
+/*         width: 110px; */
+        height: 110px;
+        display: block;
+        margin-left: auto;
+/*         margin-right: 200px; */
+        margin-top: 50px;
+        background: url('https://cdn.glitch.com/745f9a59-9ec4-49ad-b0eb-487b57bda865%2FIMG_3A0796A2825D-1.jpeg?v=1628228088622');
+        background-size: 100%;
+        background-repeat: no-repeat;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow:
+                2px 4px 1px rgba(255, 255, 255, 0.31),
+                2px 0px 1px rgba(255, 255, 255, 0.31),
+                0px 4px 1px rgba(255, 255, 255, 0.31),
+                -4px 2px 1px rgba(255, 255, 255, 0.31),
+                -4px 4px 10px rgba(0, 0, 0, 0.219),
+                4px 2px 10px -55px rgba(255, 255, 255, 0.71),
+                4px 4px 10px rgba(0, 0, 0, 0.619),
+                inset 5px 10px 10px 5px rgba(0, 0, 0, 0.19);
+        border-radius: 5px;
+        position: relative;
+        animation: mymove 5s;
+        transition: all .31s ease-in;
+
+        animation-delay: .2s;
+    }
+
+    .qr-shadow-2 {
+
+
+        background: url('https://cdn.glitch.com/745f9a59-9ec4-49ad-b0eb-487b57bda865%2FIMG_EBD12F8FBF11-1.jpeg?v=1628228070019');animation-delay: .6s;    background-size: 100% 100%;
+        background-repeat: no-repeat;}
+    .qr-shadow-3 {  
+/*       background-size: 110px 110px; */
+        background-repeat: no-repeat;background: url('https://cdn.glitch.com/745f9a59-9ec4-49ad-b0eb-487b57bda865%2FIMG_A663A875147E-1.jpeg?v=1628228082196');
+        animation-delay: 1s;
+        background-size: 100%;
+        opacity: 0.74;
+    }
+
+
+    .animated-shadow:hover {
+        box-shadow:
+                2px 4px 1px rgba(255, 255, 255, 0.31),
+                2px 0px 1px rgba(255, 255, 255, 0.31),
+                0px 4px 1px rgba(255, 255, 255, 0.31),
+                -4px 2px 1px rgba(255, 255, 255, 0.31),
+                -4px 4px 10px rgba(0, 0, 0, 0.219),
+                4px 2px 10px -55px rgba(255, 255, 255, 0.71),
+                4px 4px 10px rgba(0, 0, 0, 0.619),
+                -0 0 0 rgba(0, 0, 0, 0.19),
+                inset -2px 4px 10px rgba(0, 0, 0, 0.219),
+                inset -4px -4px 10px white,
+                inset  4px -2px 10px rgba(0, 0, 0, 0.219),
+                inset -4px -4px 10px white,
+                inset 0 0 20px white;
+    }
+
+    @keyframes mymove {
+        5% {
+            border: 1px solid rgba(255, 255, 255, 1);
+            box-shadow:
+                    -2px -4px 10px white,
+                    -4px -4px 10px rgba(0, 0, 0, 0.219),
+                    -4px -2px 10px white,
+                    -4px -4px 10px rgba(0, 0, 0, 0.619),
+                    -0 0 0 rgba(0, 0, 0, 0.619);
+
+
+            border-radius: 50%;
+
+
+        }
+
+        50% {
+            box-shadow:
+                    2px -4px 10px red,
+                    4px 4px 10px rgba(0, 0, 0, 0.219),
+                    -4px 2px 10px white,
+                    4px 4px 10px rgba(0, 0, 0, 0.619),
+                    0 0 20px rgba(0, 0, 0, 0.619),
+                    inset -2px 4px -10px white,
+                    inset -4px -4px -10px rgba(0, 0, 0, 0.219),
+                    inset  4px -2px -10px white,
+                    inset -4px -4px -10px rgba(0, 0, 0, 0.619),
+                    inset 0 0 20px rgba(0, 0, 0, 0.619);
+            border-radius: 50px;
+
+        }
+        75% {
+            border: 1px solid rgba(255, 255, 255, 1);
+            box-shadow:
+                    -2px 4px 10px white,
+                    4px 4px 10px rgba(0, 0, 0, 0.219),
+                    4px -2px 10px white,
+                    4px 4px 10px rgba(0, 0, 0, 0.619),
+                    -0 0 0 rgba(0, 0, 0, 0.619);
+                    0 -40px 40px 20px rgba(0, 0, 0, 0.619);
+            border-radius: 6px;
+
+        }
+</style>
+
+
+
+<!--⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆⬆-->
+
+
+
+
+
+<!--⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇⬇-->
+
+<div class="flex flex-col h-full pt-12 pb-4 rounded-lg neumorphism-shadow">
+            <!-- Sidebar header -->
+            <div class="flex flex-col items-center justify-center flex-shrink-0 px-4 py-2 mx-4 rounded-lg neumorphism-shadow">
+                <img alt="me, but in code!" class="w-16 h-16 p-px -mt-8 rounded-full neumorphism-shadow" src="./sidebar_files/745f9a59-9ec4-49ad-b0eb-487b57bda865_Screen Shot 2021-05-17 at 8.32.08 AM.png" style="opacity: 0.68; border: 1px solid rgba(244,244,255,0.7);box-shadow:1px 1px 12px rgba(0,0,0,0.5),box-shadow:-1px -1px 12px rgba(255,255,255,0.5),;">
+                <img id="cafe-gif" src="./sidebar_files/745f9a59-9ec4-49ad-b0eb-487b57bda865_cab.gif">
+
+
+            </div>
+            <!-- Sidebar links -->
+            <!-- Dashboard link -->
+           <li>
+              
+
+
+<!--            </head>-->
+<!--&lt;!&ndash;            <body>-->
+
+            <div class="container">
+                <div class="center" style="
+    width: 55px;
+    margin-left: 30px;
+">
+            <div class="qr-shadow-1"></div>
+            <div class="qr-shadow-2"></div>
+            <div class="qr-shadow-3"></div>
+
+
+</div></div></li></div></body></html>
