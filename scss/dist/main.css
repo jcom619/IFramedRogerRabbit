@@ -1,0 +1,270 @@
+
+html {
+  scroll-behavior: smooth;
+}
+* {
+
+  cursor: auto;
+  cursor: url(https://cdn.glitch.com/d15a0c62-6117-4382-a960-4f51f8fc660a%2Fdotty_arrow.ico?v=1626149642111) 16 16, auto;
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
+  transition: all 1.5s ease-in-out;
+}
+body {
+  text-align:center;
+/*     box-shadow: inset 0 10px 20px 1px rgba(30, 0, 0, 0.75); */
+/*   position:fixed; */
+  background: url("https://www.transparenttextures.com/patterns/hexabump.png");
+  min-height: 100vh;
+/*   background-attachment: fixed; */
+/*   background-position: center; */
+/*   background-repeat: no-repeat; */
+/*   background-size: cover; */
+  
+/*   background-color: rgba(250,250,250,0.986); */
+/*   background-image: url(""); */
+}
+  main {
+    width:100vw;
+    height:100vh;
+    padding:3%;
+    overflow:auto;
+  }
+  h2 {
+    background-color: rgba(0,0,0,0.4);
+    background-image: url(http://www.transparenttextures.com/patterns/cloth-alike.png); 
+    border-radius:18px;
+    text-align:center;
+    padding:5px;
+    color:rgba(255,255,255,0.15);font-family:thin-font,skia,titleFont;
+    padding:10px;font-size:10px;
+    text-shadow:
+/*       -1px -1px 1px rgba(0,0,0,0.85), 
+      -1px -1px 1px rgba(255,255,255,0.91),0px 0px 2px rgba(222,222,222,0.97);font-size:25px;
+    box-shadow: 0 0 1px 1px rgba(200, 200, 200, 0.15),
+    0 0 1px 1px rgba(200, 230, 200, 0.275), 0 0 30px black, */
+    inset 0 0 1px 2px rgba(200, 200, 200, .1),
+    inset 3px 3px 15px rgba(10, 5, 0, 0.5),
+    inset -3px -3px 10px rgba(0, 0, 0, 0.31), inset 0 0 5px rgba(0, 0, 0, 0.9);
+    animation: 6s linear 10s fade-show;
+  -webkit-animation: 6s linear 0s fade-show;
+  }
+/* Create two equal columns that floats next to each other */
+#column1 {
+  border: 2px dashed green;
+  border-radius:18px;
+  float: left;
+  width: 40%;
+  padding: 10px;
+  height: 96vh; /* Should be removed. Only for demonstration */
+   animation: 1.3s linear 0s panel_slide-l;
+  -webkit-animation: 1.3s linear 0s panel_slide-l;
+}
+#column2 {
+  border: 2px dashed red;
+  border-radius:18px;
+  float: right;
+  width: 60%;
+  padding: 10px;
+  height: 96vh; /* Should be removed. Only for demonstration */
+   animation: 1.3s linear 0s panel_slide-l;
+  -webkit-animation: 1.3s linear 0s panel_slide-l;
+}
+
+/* Clear floats after the columns */
+.row2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Create two equal columns that floats next to each other */
+#column3 {
+  border: 2px dashed green;
+  float: left;
+  width: 40%;
+  padding: 10px;
+  height: 50vh; /* Should be removed. Only for demonstration */
+}
+#column4 {
+  border: 2px dashed red;
+  float: right;
+  width:60%;
+  padding: 10px;
+  height: 50vh; /* Should be removed. Only for demonstration */
+     animation: 2.3s linear 0s panel_slide-r;
+  -webkit-animation: 2.3s linear 0s panel_slide-r;
+}
+
+
+/* Clear floats after the columns */
+.row3:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Create two equal columns that floats next to each other */
+#column5 {
+  border: 2px dashed green;
+  float: left;
+  width: 100%;
+  padding: 1px;
+  height: 100vh; /* Should be removed. Only for demonstration */
+}
+#column5a {
+  border: 2px dashed green;
+  float: left;
+  position:relative;
+  width: 50%;
+/*   padding: 50px; */
+  height: 100vh; /* Should be removed. Only for demonstration */
+}
+  #column5b {
+    position:relative;
+  border: 2px dashed red;
+  float: right;
+  width: 50%;
+/*   padding: 10px; */
+  height: 100vh; /* Should be removed. Only for demonstration */
+}
+#column6 {
+  border: 2px dashed red;
+  float: right;
+  width: 50%;
+/*   padding: 10px; */
+  height: 100vh; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.row1:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+  
+  iframe {
+      border: 2px dashed yellow;
+    border-radius:28%px;
+    background:none;
+  }
+  
+.insetshadow {
+  text-align:center;
+	color: rgba(22,22,22,0.6);
+	// background-color: #2d2d2d;
+	letter-spacing: .1em;
+	text-shadow: -1px -1px 1px #111, 2px 2px 1px #363636;
+}
+  
+  
+  
+@keyframes panel_slide-r {
+  0% {
+    margin-left: 1000px;
+  }
+  50% {
+    margin-left: 1000px;
+  }
+}
+@-webkit-keyframes panel_slide-l {
+  0% {
+    margin-left: -1000px;
+  }
+  50% {
+    margin-left: -1000px;
+  }
+}
+@keyframes panel_slide-l {
+  0% {
+    margin-left: -1000px;
+  }
+  50% {
+    margin-left: -1000px;
+  }
+}
+@-webkit-keyframes panel_drop {
+  from {
+    margin-top: -100px;
+  }
+  to {
+    margin-top: 150px;
+  }
+}
+@keyframes panel_drop {
+  0% {
+    margin-top: -1000px;
+  }
+  50% {
+    margin-top: -1000px;
+  }
+}
+  @keyframes fade-show {
+  0% {
+    opacity:0;
+  }
+  50% {
+    opacity:1;
+  }
+}
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 820px) {
+  #column1, #column2, #column3, #column4, #column5, #column6 {
+    width: 100%;
+  }
+}
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 620px) {
+  #column1, #column2, #column3, #column4, #column5, #column6 {
+    width: 100%;
+  }
+}
+
+
+  .exit  {
+    cursor: url(https://cdn.glitch.com/745f9a59-9ec4-49ad-b0eb-487b57bda865%2Fexit.ico?v=1625381210979) 2 2;
+  }
+  .pointer  {
+    cursor: pointer;
+    cursor: url() 8 8, pointer;
+  }
+  @font-face {
+    font-family: titleFont;
+    src: url(https://cdn.glitch.com/d15a0c62-6117-4382-a960-4f51f8fc660a%2FUniquelineRegular-axA2o.ttf?v=1626190937496);
+  }
+
+  @font-face {
+    font-family: mainFont;
+    src: url(https://cdn.glitch.com/d15a0c62-6117-4382-a960-4f51f8fc660a%2FAdoring-K7WBo.otf?v=1626709238350);
+  }
+  @font-face {
+    font-family: unique-font;
+    src: url(https://cdn.glitch.com/d15a0c62-6117-4382-a960-4f51f8fc660a%2FUniquelineRegular-axA2o.ttf?v=1626190937496);
+  }
+
+  @font-face {
+    font-family: Logo-font;
+    src: url(https://cdn.glitch.com/d15a0c62-6117-4382-a960-4f51f8fc660a%2FSouthampton-MRqp.ttf?v=1626192294526);
+  }
+
+  @font-face {
+    font-family: odd-font;
+    src: url(https://cdn.glitch.com/d15a0c62-6117-4382-a960-4f51f8fc660a%2FExthing-1Gox2.ttf?v=1626195753827);
+  }
+
+  @font-face {
+    font-family: debug-font;
+    src: url(https://cdn.glitch.com/d15a0c62-6117-4382-a960-4f51f8fc660a%2FDebugFreeTrial-MVdYB.otf?v=1626191026285);
+  }
+
+  @font-face {
+    font-family: thin-font;
+    src: url(https://cdn.glitch.com/d15a0c62-6117-4382-a960-4f51f8fc660a%2FAngelikaPlayfull-2Og5l.otf?v=1626197031848);
+  }
+
+  @font-face {
+    font-family: some-font;
+    src: url(https://cdn.glitch.com/d15a0c62-6117-4382-a960-4f51f8fc660a%2FAdoring-K7WBo.otf?v=1626709238350);
+  }
+  a {
+    cursor:pointer;
+  }
