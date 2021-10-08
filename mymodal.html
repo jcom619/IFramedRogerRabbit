@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" />
+<!--     <link rel="stylesheet" href="css/background.min.css" /> -->
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=auto" />
+    <title>J.Compton</title>
+    <style>
+      /* iframe */
+      
+      .container {
+        position: fixed;
+        padding-top: 35%; 
+        width: 100%; /* pick whatever width you want */
+      }
+      .container .outer {
+        width: 100%;
+        padding-top: 15%; /* defines aspect ratio */
+        position: relative;
+      }
+      .container .outer .inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+      }
+
+      .container {
+        position: relative;
+/*         width: 100vw; */
+        overflow: hidden;
+        margin: 30px;
+     /*    padding-top: 100%; 1:1 Aspect Ratio */
+      }
+
+      .sidebar-iframe {
+        margin: 30px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      /*  */
+      .iframe {
+/*         z-index:100; */
+        border: 31px solid rgba(25, 255, 255, 0.3);
+        box-shadow: 0px 0px 14px 2px rgba(20, 20, 20, 0.75),
+          1px 1px 1px 0 rgba(255, 255, 255, 0.73),
+          -1px -1px 3px 1px rgba(250, 250, 250, 0.9),
+          0px 0px 3px 2px rgba(250, 250, 250, 0.375),
+          inset -3px -3px 6px 1px rgba(5, 5, 5, 0.3),
+          inset -6px -3px 4px 0px rgba(55, 55, 55, 0.5),
+          inset 3px 3px 4px 1px rgba(25, 25, 25, 0.3),
+          inset 4px 4px 1px 1px rgba(255, 255, 255, 0.5);
+        overflow: hidden;
+        background: #fff;
+        border-radius: 25px;
+/*         border: 1px solid rgba(255, 255, 255, 0.5); */
+/*         object-fit: fill; */
+      }
+
+      .iframe iframe {
+        border: 0;
+        display: flex;
+      }
+
+      .iframe-content {
+        /* ipad iframe hack */
+        
+        overflow: auto;
+        -webkit-overflow-scrolling: touch;
+      }
+
+
+      }
+
+      @media all and (max-height: 400px) {
+        .iframe {
+          height: 100%;
+        }
+      }
+    </style>
+    <link
+      href=""
+      difer
+    />
+    <script>
+      document.getElementsByTagName("html")[0].className = "js";
+      console.log((document.getElementsByTagName("html")[0].className = "js"));
+      console.log(document);
+    </script>
+  </head>
+
+  <body>
+    <div class="wrapper">
+      <!-- Copy and Paste Me -->
+<!--       <h2 class="logo"><a href="#" target="_parent"><img src="https://cdn.glitch.com/745f9a59-9ec4-49ad-b0eb-487b57bda865%2FScreen%20Shot%202021-05-17%20at%208.32.08%20AM.png?v=1623558812258" alt="GroundworkCSS">JoshuaCompton<br><hr><br>webDeveloper -->
+      <div class="iframe">
+    <iframe style="object-fit:cover;position:relative; width:100%;overFlow-x:hidden" type="text/html"
+      src="https://original-portfolio.glitch.me/marquee.html"
+      frameborder="0"
+            >
+        
+        </iframe>
+        </h2>
+      </div>
+    </div>
+
+    
+    
+    
+    
+  
+    
+  
+    <script></script>
+
+    <script>
+      $(document).ready(function() {
+        $(".iframe").responsiveIframes({
+          openMessage: "Full screen",
+          closeMessage: "Close full screen"
+        });
+      });
+
+      /**
+       * jQuery Responsive IFrames
+       * @author Armin Solecki
+       * @source https://github.com/arminsolecki/responsive-iframes/
+       * Licensed under the MIT License (http://creativecommons.org/licenses/MIT/)
+       *
+       **/
+      (function($) {
+        $.responsiveIframes = function(el, options) {
+          var self = this;
+
+          // Access to jQuery and DOM versions of element
+          self.$el = $(el);
+          self.el = el;
+
+          // Add a reverse reference to the DOM object
+          self.$el.data("responsiveIframes", self);
+
+          self.init = function() {
+            self.options = $.extend(
+              {},
+              $.responsiveIframes.defaultOptions,
+              options
+            );
+
+            // wrap iframe
+            var iframeSrc = self.$el
+              .find("iframe")
+              .wrap('<div class="iframe-content" />')
+              .attr("src");
+
+            //generate header
+            var header =
+              '<div class="iframe-header">' +
+              '<a href="' +
+              iframeSrc +
+              '" class="iframe-trigger">' +
+              self.options.openMessage +
+              "</a>" +
+              "</div>";
+
+            var trigger = self.$el.prepend(header).find(".iframe-trigger");
+
+            // click event
+            $(trigger).click(function(e) {
+              e.preventDefault();
+
+              var $this = $(this),
+                $html = $("html"),
+                isFullScreen = $html.hasClass("iframe-full-screen"),
+                message = isFullScreen
+                  ? self.options.openMessage
+                  : self.options.closeMessage;
+
+              $this.text(message);
+
+              if (isFullScreen) {
+                self.$el.removeClass("iframe-active");
+                $html.removeClass("iframe-full-screen");
+                setTimeout(function() {
+                  $(window).scrollTop($this.data("iframe-scroll-position"));
+                }, 1);
+              } else {
+                $this.data("iframe-scroll-position", $(window).scrollTop());
+                self.$el.addClass("iframe-active");
+                $html.addClass("iframe-full-screen");
+              }
+            });
+          };
+
+          // Run initializer
+          self.init();
+        };
+
+        $.responsiveIframes.defaultOptions = {
+          openMessage: "Full screen",
+          closeMessage: "Close"
+        };
+
+        $.fn.responsiveIframes = function(options) {
+          return this.each(function() {
+            new $.responsiveIframes(this, options);
+          });
+        };
+      })(jQuery);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
+
+
+
+    <style>
+        * {
+
+        }
+        li {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+
+        .neumorphism-shadow {
+            position: fixed;
+            right: 30px;
+            width: 60px;
+            border-radius: 50%;
+            box-shadow:
+                    2px -4px 10px white,
+                    4px 4px 10px rgba(0, 0, 0, 0.219),
+                    -4px 2px 10px white,
+                    4px 4px 10px rgba(0, 0, 0, 0.619),
+                    0 0 20px rgba(0, 0, 0, 0.619),
+                    inset -2px 4px 10px white,
+                    inset -4px -4px 10px rgba(0, 0, 0, 0.219),
+                    inset  4px -2px 10px white,
+                    inset -4px -4px 10px rgba(0, 0, 0, 0.619),
+                    inset 0 0 20px rgba(0, 0, 0, 0.619);
+        }
+
+        .nav {
+            position: absolute;
+            text-align: center;
+            display: inline-block;
+            verticle-align: middle;
+            float: left;
+            position: absolute;
+        }
+
+        .nav:before {
+            content: "";
+            display: inline-block;
+            height: 100%;
+            vertical-align: middle;
+            overflow-x: hidden;
+        }
+
+        .nav:after {
+            content: "";
+            display: inline-block;
+            top: 100%;
+            border-right: 1px solid #3e5edf;
+
+            /*   transition-delay: 0.15; */
+        }
+
+        .nav.active:after {
+            top: 0;
+        }
+
+        .radial-nav {
+            position: absolute;
+            display: inline-block;
+            height: 0;
+            -webkit-transform-origin: center center;
+        }
+
+        .radial-nav .menu {
+            border: none !important;
+            position: absolute;
+            width: 10px;
+            height: 0px;
+            z-index: 100;
+            transition: all 0.5s;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .radial-nav .menu:active {
+            /*   -webkit-transform: rotate(0deg); */
+        }
+
+        .radial-nav li:not(.menu) {
+            position: absolute;
+            left: 0;
+            width: 1px;
+            height: 1px;
+            text-align: center;
+            display: inline-block;
+            vertical-align: middle;
+            
+            /*   transition: all 0.5s; */
+            z-index: 1;
+        }
+
+        .radial-nav li:not(.menu).selected {
+            -webkit-transform: translateX(0px) translateX(40px);
+        }
+
+        .radial-nav li:not(.menu).selected a {
+            opacity: 0;
+        }
+
+        .radial-nav li:not(.menu):before {
+            content: "";
+            display: inline-block;
+            vertical-align: middle;
+            height: 100%;
+        }
+
+        .radial-nav li:not(.menu) a {
+            display: inline-block;
+            vertical-align: middle;
+            opacity: 0;
+            -webkit-transition: all 0.5s;
+        }
+
+        .radial-nav.expanded li:not(.menu) {
+            font-size: 20px;
+            text-shadow: 0 0 1px white, 0 0 1px white, 1px 1px 3px black, -1px -1px 3px white;
+
+        }
+
+        .radial-nav.expanded li:not(.menu):hover {
+            font-size: 22px;
+            text-shadow: 0 0 1px darkred, 0 0 1px white, 1px 1px 3px black, -1px -1px 3px darkred;
+        }
+
+        .radial-nav.expanded li:nth-child(1) {
+            -webkit-transform: translateY(-20px) translateX(-110px);
+            -webkit-transition-timing-function: linear;
+          transition-delay: 5000ms;
+            transition-duration: 100ms;
+        }
+
+        .radial-nav.expanded li:nth-child(2) {
+            -webkit-transform: translateY(-20px) translateX(-160px);
+            -webkit-transition-timing-function: linear;
+          transition-delay: 5000ms;
+            transition-duration: 250ms;
+        }
+
+        .radial-nav.expanded li:nth-child(3) {
+            -webkit-transform: translateY(-20px) translateX(-210px);
+            -webkit-transition-timing-function: linear;
+                    transition-delay: 5000ms;
+            transition-duration: 300ms;
+        }
+
+        .radial-nav.expanded li:nth-child(4) {
+            -webkit-transform: translateY(-20px) translateX(-260px);
+            -webkit-transition-timing-function: linear;
+            transition-duration: 450ms;
+        }
+
+        .radial-nav.expanded li:nth-child(5) {
+            -webkit-transform: translateY(-20px) translateX(-310px);
+            -webkit-transition-timing-function: linear;
+            transition-duration: 500ms;
+        }
+
+        .radial-nav.expanded li:nth-child(6) {
+            -webkit-transform: translateY(-20px) translateX(-360px);
+            -webkit-transition-timing-function: linear;
+            transition-duration: 650ms;
+        }
+
+        .radial-nav.expanded li:nth-child(7) {
+            -webkit-transform: translateY(-20px) translateX(-410px);
+            -webkit-transition-timing-function: linear;
+            transition-duration: 700ms;
+        }
+
+        .radial-nav.expanded li:nth-child(8) {
+            -webkit-transform: translateY(-20px) translateX(-460px);
+            -webkit-transition-timing-function: linear;
+            transition: all 4s eas-in-out;
+            transition-duration: 900ms;
+        }
+
+        .radial-nav.expanded li a {
+            opacity: 1;
+        }
+
+        .radial-nav.expanded .icon-menu {
+            /*   -webkit-transform: rotate(10deg); */
+        }
+
+        .radial-nav.expanded .menu:active {
+              -webkit-transform: rotate(40deg) !important;
+        }
+
+/*         .icon-menu {
+            display: inline-block;
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+            -webkit-transition: all 0.3s;
+        } */
+
+        .icon-menu:before {
+            content: "";
+            display: inline-block;
+            width: 100%;
+            -webkit-transition: all 0.3s;
+        }
+      @keyframes fadeInDelayed {
+        0% {
+          opacity:0;
+        }
+        50% {
+          opacity:1;
+        }
+      }
+        html,
+        body {
+            height: 100%;
+              background-color: none;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        * {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+
+        body {
+            color: #d1d1d1;
+            text-shadow: 0 0 1px white, 1px 1px 2px black;
+        }
+
+        article {
+            /*     margin: 35%; */
+        }
+
+        .content {
+            position: absolute;
+            padding: 5px;
+            overflow: hidden;
+        }
+
+        .content .item {
+            opacity: 0;
+            transition: all 0.5s;
+            transition-delay: 1.3s;
+            position: absolute;
+        }
+
+        .content .item.active {
+            opacity: 1;
+            position: static;
+
+        }
+
+        .content .item h1 {
+            font-size: 25px;
+
+        }
+
+        footer {
+            position: fixed;
+            right: 0;
+            z-index: 2000;
+            bottom: 100px;
+            width: 8%;
+            color: white;
+            text-align: center;
+        }
+
+        .menu:hover {
+            color: red;
+            width: 10px;
+            height: 10px;
+        }
+    </style>
+
+
+
+
+
+
+</head>
+
+<body translate="no">
+<link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+<footer>
+    <div class="nav">
+        <ul class="radial-nav">
+            <li data-content="1"><a href="#">1</a></li>
+            <li data-content="2"><a href="#">2</a></li>
+            <li data-content="3"><a href="#">3</a></li>
+<!--             <li data-content="4"><a href="#">4</a></li> -->
+<!--             <li data-content="5"><a href="#">5</a></li> -->
+<!--             <li data-content="6"><a href="#">6</a></li> -->
+<!--             <li data-content="7"><a href="#">7</a></li> -->
+<!--             <li data-content="8"><a href="#">8</a></li> -->
+<!--             background-color: rgba(0, 0, 0, 0);  -->
+            <li class="menu-icon neumorphism-shadow menu"
+                style="right: 75px; bottom: 10px;background:url(''); transition: all 3s ease-in;background-size:cover; ">
+                <img class=""
+                     src="https://cdn.glitch.com/1ba8884d-b96f-41cf-9f77-f50fe772ba2c%2Fsubtlepulse.gif?v=1627670517342"
+                     style="height:60px; width:60px; opacity:1; box-shadow: inset 2px 1px 18px -8px gray, 1px 2px 3px 0px white, 2px 2px 4px -1px black; border-radius: 50%;" /></li>
+        </ul>
+    </div>
+</footer>
+<div class="content">
+
+    <article class="item" id="1">
+        <h1>Grunt: the task runner</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ad laudantium ullam nobis magni, molestiae,
+            nisi doloribus fugiat quam, quo odio ex sequi eum recusandae tempore optio! Veniam, mollitia soluta.</p>
+    </article>
+    <article class="item" id="2">
+        <h1>Jade: A Node templating engine</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ad laudantium ullam nobis magni, molestiae,
+            nisi doloribus fugiat quam, quo odio ex sequi eum recusandae tempore optio! Veniam, mollitia soluta.</p>
+    </article>
+    <article class="item" id="3">
+        <h1>CSS3</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ad laudantium ullam nobis magni, molestiae,
+            nisi doloribus fugiat quam, quo odio ex sequi eum recusandae tempore optio! Veniam, mollitia soluta.</p>
+    </article>
+    <article class="item" id="4">
+        <h1>GIT: Version control</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ad laudantium ullam nobis magni, molestiae,
+            nisi doloribus fugiat quam, quo odio ex sequi eum recusandae tempore optio! Veniam, mollitia soluta.</p>
+    </article>
+    <article class="item" id="5">
+        <h1>GULP: An other task runner</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ad laudantium ullam nobis magni, molestiae,
+            nisi doloribus fugiat quam, quo odio ex sequi eum recusandae tempore optio! Veniam, mollitia soluta.</p>
+    </article>
+    <article class="item" id="6">
+        
+    </article>
+    <article class="item" id="7">
+        <h1>JS</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ad laudantium ullam nobis magni, molestiae,
+            nisi doloribus fugiat quam, quo odio ex sequi eum recusandae tempore optio! Veniam, mollitia soluta.</p>
+    </article>
+    <article class="item" id="8">
+        <div style="position: relative;
+                    width: 100%;
+                    /*overflow: hidden;*/
+                    padding-top: 10%; ">
+            <iframe src="
+                          https://modular-componets.glitch.me/fullmodal" style="  position: absolute;
+                          top: 0;
+                          left: 0;
+                          bottom: 0;
+                          right: 0;
+                          width: 100%;
+                          height: 100%;
+                          border: none;"
+            >
+            </iframe>
+        </div>
+    </article>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script id="rendered-js">
+    $(document).ready(function () {
+        function radialMenu() {
+            $('.radial-nav').on('click', function (evt) {
+                evt.stopPropagation();
+                $('.nav, .item').removeClass('active');
+                $(this).toggleClass('expanded');
+                $(this).find('li').removeClass('selected');
+            });
+
+            $('.radial-nav li').not('.menu').click(function (evt) {
+                evt.stopPropagation();
+                $(this).addClass('selected');
+                $('.nav').addClass('active');
+                $('.radial-nav').removeClass('expanded');
+                getContent(this);
+            });
+
+            function getContent(elem) {
+                $('#' + $(elem).attr('data-content')).addClass('active');
+            }
+        }
+        radialMenu();
+    });
+</script>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+/* .polling_message {
+  color: white;
+  float: left;
+  margin-right: 2%;
+}
+
+.view_port {
+  background-color: black;
+  height: 25px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cylon_eye {
+  background-color: red;
+  background-image: linear-gradient(to right,
+      rgba(0, 0, 0, .9) 25%,
+      rgba(0, 0, 0, .1) 50%,
+      rgba(0, 0, 0, .9) 75%);
+  color: white;
+  height: 100%;
+  width: 20%;
+
+  -webkit-animation: 4s linear 0s infinite alternate panel_drop;
+  animation: 4s linear 0s infinite alternate panel_drop;
+} */
+
+
+
+/*   -webkit-animation: 4s linear 0s infinite alternate panel_drop; */
+/*   animation: 4s linear 0s infinite alternate panel_drop; */
+@-webkit-keyframes panel_drop { 
+  from { 
+    margin-top: -100px; 
+      } to { 
+        margin-top: 150px; 
+  }  
+}
+@keyframes panel_drop { 
+  from { 
+    margin-top: -200px; 
+  } to { 
+    margin-top: 50px; 
+  }  
+}

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <link
+      rel="apple-touch-icon"
+      type="image/png"
+      href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png"
+    />
+    <meta name="apple-mobile-web-app-title" content="CodePen" />
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico"
+    />
+
+    <link
+      rel="mask-icon"
+      type=""
+      href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-8f3771b1072e3c38bd662872f6b673a722f4b3ca2421637d5596661b4e2132cc.svg"
+      color="#111"
+    />
+
+    <title></title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css"
+    />
+
+    <style>
+      * {
+          transition: all .3s;
+        user-input: none;
+        carat-color: rgba(0,0,0,0);
+
+      }
+
+      .scroll-text-lg {
+        color: rgba(255, 266, 255, 1);
+        text-shadow: 0 0 8px rgba(10,0,0,1);
+        font-size: 30px;
+        text-align: center;
+        #ytplayer {
+/*          border: 8; */
+
+        // border-radius: 15p 15px 15px 15px;
+
+        .scroll-text-md {
+          color: rgba(255, 2, 255, 1);
+          text-shadow: 0 0 8px rgba(0,0,0,1);
+          font-size: 25px;
+          text-align: center;
+          }
+        }
+      }
+      .scroll-text-sm {
+        color: rgba(255, 266, 255, 1);
+        text-shadow: 0 0 8px rgba(0,0,0,1);
+        font-size: 18px;
+        text-align: center;
+        }
+        .box2 {
+          transition: all 1s;
+          :hover & {
+              transform: scale(2);
+        }
+      }
+
+
+      a {
+        color: rgba(255, 26, 255, 1);
+         z-index: 8200;
+        text-decoration: none;
+      }
+      .scroller {
+/*           padding: 10px; */
+          height: 100px;
+/*           margin: 1px 12px 1px 12px; */
+          overflow-y: auto;
+          font-size: 5px;
+          color: white;
+/*           box-shadow: inset 0px 0px 20px 1px rgba(0,0,0,0.5); */
+/*           border: 1px solid rgba(250,250,250,0.735); */
+          border-radius: 0 0 20px 20px;
+        }
+
+
+      /* iframe */
+      .container {
+/*           width: 100%;
+          padding: 5%; */
+
+        .outer {th: 100%;
+            paddin
+            widg-top: 75%; /* defines aspect ratio */
+            position: relative;
+      /*         border: 71px solid rgba(50,50,250,1); */
+
+        }
+      }
+      .container .outer .inner {
+          position: relative;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+      }
+
+       .container {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        padding-top: 100%; /* 1:1 Aspect Ratio */
+      }
+        .ytplayer {
+          height: 90vh;
+        }
+
+      .responsive-iframe {
+
+         // border-radius: 15p 15px 15px 15px;
+        position: relative;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        width: 90%;
+        height: 100vh;
+        border: none;
+      }
+
+
+        .hero {
+          z-index:10;
+        }
+
+
+      /*  */
+      .iframe {
+/*       //     border: 1px solid rgba(250,250,250,1);
+      // box-shadow:
+      //     -1px -1px 3px -1px rgba(255,255,255,0.5),
+      //     -1px -1px 2px 1px rgba(255,255,255,0.5),
+      //     1px 1px 1px rgba(0,0,0,0.25),
+      //     inset -1px 2px 1px rgba(0,0,0,0.35),
+      //     3px 3px 2px rgba(0,0,0,0.35),
+      //     inset 2px 2px 2px rgba(0,0,0,0.35),
+      //     1px 1px 2px 1px rgba(255,255,255,0.27),
+      //     inset -2px -2px 2px rgba(255,255,255,0.37);
+      /*     z-index: -3; */ */
+         // border-radius: 15px 15px 15px 15px;
+
+        overflow: hidden;
+        object-fit: cover;
+
+      }
+
+      .iframe iframe {
+
+
+/*         box-shadow:
+         inset 0 0 100px 11px rgba(255,255,255,0.5);
+        //   -1px -1px 2px 1px rgba(255,255,255,0.5),
+        //   1px 1px 1px rgba(0,0,0,0.25),
+        //   inset -1px 2px 1px rgba(0,0,0,0.35),
+        //   3px 3px 2px rgba(0,0,0,0.35),
+        //   inset 2px 2px 2px rgba(0,0,0,0.35),
+        //   1px 1px 2px 1px rgba(255,255,255,0.27),
+        //   inset -2px -2px 2px rgba(255,255,255,0.37);
+        transform: scale(1); */
+        display: flex;
+        border-radius: 15px 15px 15px 15px;
+/*         border: 5 solid rgba(0,0,0,0.3); */
+        color: rgba(0,0,0,0.7);
+      }
+      // .iframe.iframe-active {
+      // }
+      .iframe-header {
+        display: none;
+        // color: rgba(0,0,0,0);
+      /*   text-shadow: 1px 1px 4px black; */
+      }
+
+      .js .iframe-header {
+        display: none;
+        // color: ;
+        display: block;
+      /*   border:5px solid rgba(0,0,0,0.1); */
+      /*   border-radius: 25px 25px 10px 10px; */
+      }
+
+      .iframe-content {
+      /*       // border: 1px solid rgba(250,50,250,1); */
+        display: flex;
+        border-radius: 10px 10px 20px 20px;
+        margin-bottom: 20px;
+         height: 500px;
+      width: 100%;
+        margin:0;
+        padding: 15px 15px 5px 15px;
+        overflow: auto;
+        box-shadow: inset 0px 0px 14px 2px rgba(0,0,0,0.45);
+          inset 1px 1px 1px 0 rgba(0,0,0,0.53);
+        -webkit-overflow-scrolling: touch;
+            box-shadow:
+          -1px -1px 3px -1px rgba(255,255,255,0.5),
+          -1px -1px 2px 1px rgba(255,255,255,0.5),
+          1px 1px 1px rgba(0,0,0,0.25),
+          inset -1px 2px 1px rgba(0,0,0,0.35),
+          3px 3px 2px rgba(0,0,0,0.35),
+          inset 2px 2px 2px rgba(0,0,0,0.35),
+          1px 1px 2px 1px rgba(255,255,255,0.27),
+          inset -2px -2px 2px rgba(255,255,255,0.37);
+        transform: scale(1);
+      }
+
+      .iframe-header a {
+         z-index: 1920;
+      /*   // border:4px solid rgba(60,60,0,0.1); */
+        // border-radius: 20px 20px 10px 10px;
+        display: none;
+        width:20%;
+        margin-left: 40%;
+      /*   background: white; */
+        font-size: 25px;
+        color: rgba(255, 266, 255, 1);
+        text-shadow: 0 0 8px rgba(20,0,0,1);
+        display: block;
+        padding-bottom: 5px;
+        text-align: center;
+        border-bottom: 1px solid #rgba(255,55,255,0.7);
+
+
+      }
+
+      .iframe-header a:hover {
+      /*   border:4px solid rgba(60,0,0,0.1); */
+        // border-radius: 20px;
+        // box-shadow: inset -2px 1px 3px rgba(10,10,10,0.24), inset -2px -2px 3px rgba(255,255,255,0.4);
+      }
+
+      .iframe-full-screen .iframe-header {
+      /*   z-index: 810; */
+            color: rgba(255, 266, 255, 1);
+          text-shadow: 0 0 8px rgba(0,0,0,1);
+        display: block;
+        position: absolute;
+        height: 40px;
+        top:0;
+        right: 0;
+        padding: 10px 5px 60px 20px;
+      /*   border-radius: 50%; */
+      }
+
+      .iframe-full-screen .iframe-content {
+         // border-radius: 15px 15px 15px 15px;
+         z-index: -2;
+        // border:4px solid rgba(0,0,0,0.1);
+      /*   border-radius: 50%; */
+        position: absolute;
+        top: 2px;
+        bottom: 0;
+        width: 100%;
+        height: auto;
+      }
+
+      .iframe-full-screen .iframe-header a {
+      /*   z-index: inherit; */
+      /*   border:4px solid rgba(0,0,0,0.1); */
+      /*   border-radius: 50%; */
+      /*   padding: -10px 10px 135px 10px; */
+        height: 44px;
+        line-height: 44px;
+        text-align: center;
+        color: rgba(0,0,0,0.5);
+        font-size: 45px;
+      /*   background: rgba(180,180,7,0.6); */
+        // box-shadow:
+        //   0px 0px 14px 2px rgba(0,0,0,0.45),
+        //   1px 1px 1px 0 rgba(0,0,0,0.53),
+        //   inset 0px 0px 14px 2px rgba(0,0,0,0.45),
+        //   inset 1px 1px 1px 0 rgba(0,0,0,0.53);
+        // border: 1px solid rgba(200,200,200,0);
+        margin: 4px;
+      }
+
+      .iframe-full-screen body {
+        // border: 71px solid rgba(50,50,250,1);
+         // border-radius: 15px 15px 15px 15px;
+      /*   z-index: 1; */
+      /*   border:4px solid rgba(0,0,0,0.1); */
+        width: 100%;
+        height: 90%;
+        overflow: hidden;
+        padding-top: 5px;
+      }
+
+      .iframe-full-screen .iframe.iframe-active{
+      /*     z-index: -9; */
+      // border: 71px solid rgba(50,50,250,1);
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        right: 0;
+      /*   z-index:9; */
+      /*    // border: 3px solid #131C28; */
+      /*   border-radius: 25px; */
+      }
+
+      .iframe-full-screen .iframe iframe {
+        z-index: 1000;
+          color: rgba(255, 266, 255, 1);
+          text-shadow: 0 0 8px rgba(0,0,0,1);
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        border: none;
+
+         // border-radius: 15px 15px 15px 15px;
+
+      }
+
+      .wrapper {
+
+        max-width: 850px;
+        margin: 20px auto;
+        padding: 0 20px;
+      }
+
+      @media all and (max-height: 400px){
+        .iframe {
+          height: 300px;
+        }
+      }
+
+      /*
+      the-outer-most-of
+
+      All grid code is placed in a 'supports' rule (feature query) at the bottom of the CSS (Line 77).
+
+      The 'supports' rule will only run if your browser supports CSS grid.
+
+      Flexbox is used as a fallback so that browsers which don't support grid will still recieve an identical layout.
+       */
+
+
+      @import url(https://fonts.googleapis.com/css?family=Montserrat:500);
+
+      :root {
+      	/* Base font size */
+      	font-size: 10px;
+        text-shadow: 1px 1px 4px rgba(12,0, 0, 0.8)
+      }
+
+      *,
+      *::before,
+      *::after {
+      	box-sizing: border-box;
+      }
+
+      body {
+      	min-height: 100vh;
+      }
+
+      .container {
+      	max-width: 1000px;;
+      	margin: 0 auto;
+      	padding: 0 2rem 2rem;
+      }
+
+      .heading {
+      	font-family: "Montserrat", Arial, sans-serif;
+      	font-size: 4rem;
+      	font-weight: 500;
+      	line-height: 1.5;
+      	text-align: center;
+      	padding: 3.5rem 0;
+      	color: #1a1a1a;
+      }
+
+      .heading span {
+      	display: block;
+      }
+
+      .gallery {
+      	display: flex;
+      	flex-wrap: wrap;
+      	/* Compensate for excess margin on outer gallery flex items */
+      	margin: -1rem -1rem;
+      }
+
+      .gallery-item {
+      	/* Minimum width of 24rem and grow to fit available space */
+      	flex: 1 1 0;
+      	/* Margin value should be half of grid-gap value as margins on flex items don't collapse */
+      	margin: 1rem;
+      	box-shadow: 0.3rem 0.4rem 0.4rem rgba(0, 0, 0, 0.4);
+      	overflow: hidden;
+      }
+
+      .gallery-image {
+      	display: block;
+      	width: 100%;
+      	height: 100%;
+      	object-fit: cover;
+      	transition: transform .5s ease-out;
+      }
+
+      .gallery-image:hover {
+      	transform: scale(1.05);
+      }
+
+      /*
+
+      The following rule will only run if your browser supports CSS grid.
+
+      Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling.
+
+      */
+
+      @supports (display: grid) {
+      	.gallery {
+      		display: grid;
+      		grid-template-columns: repeat(auto-fit, minmax(24rem, 1fr));
+      		grid-gap: 2rem;
+      	}
+
+      	.gallery,
+      	.gallery-item {
+      		margin: 0;
+      	}
+      }
+
+
+
+      /* flex */
+
+
+
+
+      .flex-container {
+        /* We first create a flex layout context */
+        display: flex;
+
+        /* Then we define the flow direction
+           and if we allow the items to wrap
+         * Remember this is the same as:
+         * flex-direction: row;
+         * flex-wrap: wrap;
+         */
+        flex-flow: row wrap;
+
+        /* Then we define how is distributed the remaining space */
+        justify-content: space-around;
+
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+
+      .flex-item {
+        padding: 5px;
+        width: 200px;
+        height: 150px;
+        margin-top: 30px;
+        line-height: 150px;
+        color: white;
+        font-weight: bold;
+        font-size: 3em;
+        text-align: center;
+      }
+      /* div .embed-helper {
+        display: none;
+        opacity:0;
+      } */
+
+
+        iframe-trigger {
+          position:absolute;
+          z-index:29000;
+        }
+
+
+      @media all and (min-width: 300px) {
+         .lg-frame iframe{
+           display: flex;
+           flex: flex wrap;
+            width: 90vw;
+           height: 100vh
+        }
+      }
+      section {
+        overflow: hidden;
+      }
+    </style>
+  </head>
+
+  <body translate="no">
+    <html class="">
+      <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script>
+          document.getElementsByTagName("html")[0].className = "js";
+          console.log(
+            (document.getElementsByTagName("html")[0].className = "js")
+          );
+          console.log(document);
+        </script>
+      </head>
+      <body>
+        <!-- <ul class="flex-container"> -->
+        <section>
+          <!--   <div class="wrapper"> -->
+          <div id="" class="iframe ">
+            <iframe
+              style="z-index:1000;object-fit:cover;position:relative; width:110%;height:110%;overFlow-x:auto"
+              type="text/html"
+              src="https://original-portfolio.glitch.me/con.html"
+              frameborder="0"
+            ></iframe>
+            <!--     </div> -->
+            <!--       <div>
+        <div style="z-index:1;" class="scroller">
+           <h1></h1>
+          <h1  class="scroll-text-lg"> Live DEMO...<br> ⬇⬇read⬇more⬇⬇ </h1>
+          <h1 style="font-size:35px;"> after a lot of time building components, collecting resources, learning new tools, planning ...and a little trial and error, I finally get to assemble it all and present to the world.</h1>
+          <p style="font-size:25px;">  you are more than welcomed to check in from time to time and see where it's at</p><br><hr>
+          <p style="font-size:30px;">
+            Once I have the basics properly laid out I will be using sequelize to build a Postgres™ relational database, adding some ads from google (if approved by google)
+          </p>
+        </div>
+      </div> -->
+          </div>
+        </section>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script id="rendered-js">
+          $(document).ready(function() {
+            $(".iframe").responsiveIframes({
+              openMessage: "Expand",
+              closeMessage: "X"
+            });
+          });
+
+          /**
+           * jQuery Responsive IFrames
+           * @author Armin Solecki
+           * @source https://github.com/arminsolecki/responsive-iframes/
+           * Licensed under the MIT License (http://creativecommons.org/licenses/MIT/)
+           *
+           **/
+          (function($) {
+            $.responsiveIframes = function(el, options) {
+              var self = this;
+
+              // Access to jQuery and DOM versions of element
+              self.$el = $(el);
+              self.el = el;
+
+              // Add a reverse reference to the DOM object
+              self.$el.data("responsiveIframes", self);
+
+              self.init = function() {
+                self.options = $.extend(
+                  {},
+                  $.responsiveIframes.defaultOptions,
+                  options
+                );
+
+                // wrap iframe
+                var iframeSrc = self.$el
+                  .find("iframe")
+                  .wrap('<div class="iframe-content" />')
+                  .attr("src");
+
+                //generate header
+                var header =
+                  '<div class="iframe-header">' +
+                  '<a href="' +
+                  iframeSrc +
+                  '" class="iframe-trigger">' +
+                  self.options.openMessage +
+                  "</a>" +
+                  "</div>";
+
+                var trigger = self.$el.prepend(header).find(".iframe-trigger");
+
+                // click event
+                $(trigger).click(function(e) {
+                  e.preventDefault();
+
+                  var $this = $(this),
+                    $html = $("html"),
+                    isFullScreen = $html.hasClass("iframe-full-screen"),
+                    message = isFullScreen
+                      ? self.options.openMessage
+                      : self.options.closeMessage;
+
+                  $this.text(message);
+
+                  if (isFullScreen) {
+                    self.$el.removeClass("iframe-active");
+                    $html.removeClass("iframe-full-screen");
+                    setTimeout(function() {
+                      $(window).scrollTop($this.data("iframe-scroll-position"));
+                    }, 1);
+                  } else {
+                    $this.data("iframe-scroll-position", $(window).scrollTop());
+                    self.$el.addClass("iframe-active");
+                    $html.addClass("iframe-full-screen");
+                  }
+                });
+              };
+
+              // Run initializer
+              self.init();
+            };
+
+            $.responsiveIframes.defaultOptions = {
+              openMessage: "Full screen",
+              closeMessage: "i"
+            };
+
+            $.fn.responsiveIframes = function(options) {
+              return this.each(function() {
+                new $.responsiveIframes(this, options);
+              });
+            };
+          })(jQuery);
+        </script>
+
+        <!--             </div> -->
+      </body>
+    </html>
+  </body>
+</html>
