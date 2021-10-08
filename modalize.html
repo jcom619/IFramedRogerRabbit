@@ -1,151 +1,12 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <style>* {
-  margin: 0;
-  padding: 0;
-}
-    * {
-      transition: all .25s ease-in;
-    }
-html,
-body {
-    overflow: hidden;
-  height: 100%;
-/*   margin-top:10%; */
-  /* for touch screen */
-  touch-action: none;
-  background: url("https://i.pinimg.com/originals/8c/7a/89/8c7a894ca643b929c03e620b65c4e281.gif"); 
-  background-size:cover;
-  background-repeat:no-repeat; 
-}
-
-main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  
-  -webkit-perspective: 9000px;
-          perspective: 9000px;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-}
-
-#drag-container, #spin-container {
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin-left: 100px;
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-/*   -webkit-transform: rotateX(-10deg); */
-          transform: rotateX(-5deg);
-}
-#spin-container:hover {
-  animation-play-state: paused;
-}
-#drag-container img, #drag-container video {
-  -webkit-transform-style: preserve-3d;
-          transform-style: preserve-3d;
-  position:absolute;
-  opacity:0.8;
-  margin-left: 60%;
-  margin-top:60vh;
-/*   top: 220%; */
-  width: 100%;
-  height: 50%;
-  line-height: 200px;
-  font-size: 50px;
-  border:solid 2px rgba(122,22,22,0.5);
-  border-radius:8px;
-  text-align: center;
-  -webkit-box-shadow: 0 0 8px #fff;
-          box-shadow: 0 0 8px black;
-  -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0005);
-}
-
-#drag-container img:hover, #drag-container video:hover {
-	animation-play-state: paused;
-  -webkit-box-shadow: 0 0 15px #fffd;
-          box-shadow: 0 0 15px #fffd;
-  -webkit-box-reflect: below 10px linear-gradient(transparent, transparent, #0007);
-}
-
-#drag-container p {
-  font-family: Serif;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%,-50%) rotateX(90deg);
-          transform: translate(-50%,-50%) rotateX(90deg);
-  color: #fff;
-}
-
-#ground {
-  width: 100vw;
-  height: 300px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%,-50%) rotateX(90deg);
-          transform: translate(-50%,-50%) rotateX(90deg);
-  background: -webkit-radial-gradient(center center, farthest-side , #9993, transparent);
-  opacity:.5;
-}
-#geound:hover {
-  animation-play-state: paused;
-}
-#music-container {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-@-webkit-keyframes spin {
-  from{
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-  } to{
-    -webkit-transform: rotateY(360deg);
-            transform: rotateY(360deg);
-  }
-}
-
-@keyframes spin {
-  from{
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-  } to{
-    -webkit-transform: rotateY(360deg);
-            transform: rotateY(360deg);
-  }
-}
-@-webkit-keyframes spinRevert {
-  from{
-    -webkit-transform: rotateY(360deg);
-            transform: rotateY(360deg);
-  } to{
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-  }
-}
-@keyframes spinRevert {
-  from{
-    -webkit-transform: rotateY(360deg);
-            transform: rotateY(360deg);
-  } to{
-    -webkit-transform: rotateY(0deg);
-            transform: rotateY(0deg);
-  }
-  img {
-    background:black;
-  }
-}</style>
+  <link rel="stylesheet" href="https://cdn.glitch.com/745f9a59-9ec4-49ad-b0eb-487b57bda865%2Fcarousel.css?v=1633025915993">
+  <link rel="stylesheet" href="">
 </head>
 <body>
 <div id="drag-container">
-  <div id="spin-container"style=“position:relative;z-index:-3;”>
+  <div id="spin-container">
     <!-- Add your images (or video) here -->
     <img src="https://raw.githubusercontent.com/jcom619/Outcomes-Portfolio-Project/pages/python.png" alt="" onclick="onClick(this)">
     <img src="https://raw.githubusercontent.com/jcom619/Outcomes-Portfolio-Project/pages/cpp.png" alt="" onclick="onClick(this)">
@@ -153,10 +14,10 @@ main {
     <img src="https://raw.githubusercontent.com/jcom619/Outcomes-Portfolio-Project/pages/interview.png" alt="" onclick="onClick(this)">
     <img src="https://raw.githubusercontent.com/jcom619/Outcomes-Portfolio-Project/pages/GA.png" alt="" onclick="onClick(this)">
     <img src="https://raw.githubusercontent.com/jcom619/Outcomes-Portfolio-Project/pages/react-a.png" alt="" onclick="onClick(this)">
-    <img src="https://raw.githubusercontent.com/jcom619/Outcomes-Portfolio-Project/pages/react-b.png" alt="" onclick="onClick(this)">
+    
     <!-- Example image with link -->
 <!--     <a href="https://images.pexels.com/photos/139829/pexels-photo-139829.jpeg"> -->
-      
+      <img src="https://raw.githubusercontent.com/jcom619/Outcomes-Portfolio-Project/pages/react-b.png" alt="" onclick="onClick(this)">
 <!--     </a> -->
 
     <!-- Example add video  -->
@@ -166,14 +27,13 @@ main {
     <!-- Text at center of ground -->
 <!--     <p>3D Tiktok Carousel</p> -->
   </div>
-  </div >
-</body>
+  <div style=”border-radius:8px;” id="ground"></div>
 </div> <!-- Example add video  -->
-<div style=”position:absolute;z-index:3100;border-radius:8px;” id="ground"></div>
- <div id="modal01" style=”border-radius:8px; ” class="w3-modal" onclick="this.style.display='none'">
-      <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span>
+
+ <div id="modal01" style=”border-radius:8px;overflow:hidden;” class="w3-modal" onclick="this.style.display='none'">
+<!--       <span class="w3-button w3-hover-red w3-xlarge w3-display-topright">&times;</span> -->
       <div style=”border-radius:8px;” class=" w3-animate-zoom">
-        <img id="img01" style="position:absolute;z-index:9800;max-height:90vh;box-shadow:0 0 100px 20px black;max-width:80%;border-radius:8px;margin-left:10vw;margin-bottom:5vh;margin-:-5vh;border:solid 8px rgba(222,222,222,0.5);">
+        <img id="img01" style="max-height:90vh;max-width:80%;border-radius:8px;margin-left:10vw;margin-bottom:50vh;border:solid 4px rgba(0,0,0,0.5);">
       </div>
     </div>
 <script>// Author: Hoang Tran (https://www.facebook.com/profile.php?id=100004848287494)
@@ -243,7 +103,7 @@ function playSpin(yes) {
 var sX, sY, nX, nY, desX = 0,
     desY = 0,
     tX = 0,
-    tY = 10;
+    tY = 0;
 
 // auto spin
 if (autoRotate) {
@@ -282,9 +142,7 @@ document.onpointerdown = function (e) {
 
   this.onpointerup = function (e) {
     odrag.timer = setInterval(function () {
-      desX *= 0.95;
-      desY *= 0.95;
-      tX += desX * 0.1;
+.1;
       tY += desY * 0.1;
       applyTranform(odrag);
       playSpin(false);
@@ -303,7 +161,7 @@ document.onmousewheel = function(e) {
   e = e || window.event;
   var d = e.wheelDelta / 20 || -e.detail;
   radius += d;
-  init(1);
+  init(0);
 };
   
 function onClick(element) {

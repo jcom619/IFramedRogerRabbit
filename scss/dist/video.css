@@ -1,0 +1,125 @@
+* {
+  text-align:0;
+  text-shadow:1px 1px 1px white;
+}
+/* normalize */
+body { background-color: rgba(0,0,0,0.94);margin: 0;padding:0;border-radius: 8px; }
+.center {
+
+  border-radius: 8px;
+  padding: 0;
+  width:80vw;
+}
+/* global styles */
+video {
+  background-color: rgba(0,0,0,0.64);
+  border-radius:8px;
+  border:3px solid rgba(111,112,11,0.7);
+  box-shadow: 1px 2px 15px black;
+  margin:6px;
+}
+#js-local-stream  {
+  width:20vw;
+  margin-left:-45vw;
+  margin-top:-19px;
+}
+#js-remote-stream  {
+  width:70vw;
+  
+}
+.heading {
+  text-align: center;
+/*   margin-bottom: 0; */
+}
+
+.note {
+  text-align: center;
+}
+
+.meta {
+  text-align: center;
+  font-size: .8rem;
+  color: gray;
+}
+
+.container {
+  position:absolute;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90vw;
+}
+
+/* p2p-media styles */
+.p2p-media {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.p2p-media .remote-stream {
+  width: 98%;
+  margin-right:10%;
+  margin-left:10%;
+}
+
+.p2p-media .local-stream {
+  width: 20%;
+  margin:20px;
+}
+
+/* p2p-data styles */
+.p2p-data {
+  display: grid;
+  grid-template-columns: 30% 1fr;
+}
+
+.p2p-data .messages {
+  
+  min-height: 100px;
+  padding: 8px;
+  margin-top: 0;
+}
+
+/* room */
+.room {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+  gap: 0;
+/*   margin: 0 8px; */
+}
+
+.room .remote-streams {
+  
+/*   background-color: #f6fbff; */ 
+}
+
+.room .messages {
+/*   background-color: #eee; */
+/*   min-height: 100px; */
+  padding: 0;
+  margin-top: 0;
+}
+
+button {display:inline-block;
+  position:static;
+/*  margin-right-100px; */
+/*   border: 3px solid #73AD21; */
+/*   border-radius: 8px; */
+  box-shadow: inset 1px 2px 15px black;
+  padding: 5px; 
+}
+input {
+  position:relative;
+  margin-left: -55%;
+  margin-bottom:4px;
+  padding:10px;
+  max-width:200%;
+  min-width:100px;
+  border-radius: 8px;
+}
+.center-local {
+  border-radius:8px;
+  
+  position:relative;
+  margin-top:50vh;
+}
